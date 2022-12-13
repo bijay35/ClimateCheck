@@ -2,7 +2,7 @@
 import weather
 
 import tkinter as tk
-
+from tkinter import *
 root = tk.Tk()
 
 
@@ -18,14 +18,15 @@ Location = tk.Entry(root, textvariable=loc).grid(row=1, column=1)
 
 
 def resultLabel():
-    if loc.get() is "":
-        tk.Label(root, text=('The temperature in %s is %sC' %
-                             ('kathmandu', weather.currentTemp))).grid(row=5)
-    else:
-        tk.Label(root, text=('The temperature in %s is %sC' %
-                             (loc.get(), weather.currentTemp))).grid(row=5)
-    tk.Label(root, text=('It feels like %s C ' %
-                         (weather.feelLike))).grid(row=6)
+    tk.Label(root, text=('Location :: ')).grid(row=3, column=1, sticky='W')
+    kath = tk.Label(root, text=('kathmandu')).grid(row=3, column=2, sticky='W')
+    if len(loc.get()) > 0:
+        kath = tk.Label(root, text=('')).grid(row=3, column=2, sticky='W')
+        kath = tk.Label(root, text=(loc.get())).grid(row=3, column=2, sticky='W')
+        # tk.Label(root, text=('kathmandu')).grid(row=3, column=2, sticky='W')
+
+    tk.Label(root, text=('Temperature :: ')).grid(row=4, column=1, sticky='W')
+    tk.Label(root, text=(weather.feelLike)).grid(row=4, column=2, sticky='W')
 
 
 b1 = tk.Button(
