@@ -14,7 +14,7 @@ def getWeatherUpdate(location):
     print(type(location))
 
     url = 'http://api.weatherapi.com/v1/current.json'
-    if (location is ""):
+    if (location == ""):
         parameters = {'key': '09db4874ceaf45f3a5b232447221112', 'q': 'kathmandu'}
     else:
         parameters = {'key': '09db4874ceaf45f3a5b232447221112', 'q': location}
